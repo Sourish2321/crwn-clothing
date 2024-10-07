@@ -22,7 +22,7 @@ const SignUpForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (password !== confirmPassword){
-             return alert("Ensure that the Passwords match");
+             return alert("Ensure that the Passwords magittch");
         }
        try {
         const { user } = createAuthUserWithUserandPassword(email, password)
