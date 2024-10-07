@@ -24,7 +24,7 @@ const SignUpForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (password !== confirmPassword){
-             return alert("Ensure that the Passwords magittch");
+             return alert("Ensure that the Passwords match");
         }
        try {
         const { user } = createAuthUserWithUserandPassword(email, password)
@@ -47,37 +47,39 @@ const SignUpForm = () => {
         
     }
      return (
-        <div>
-        <h1>Sign up with you email and password</h1>
+        <div className='sign-up-container'>
+        <h2>Dont have an account?</h2>
+        <span>Sign up with you email and password</span>
         <form onSubmit={handleSubmit}>
-           
+
             <FormInput
             label="Display Name"
-             type="text" required 
-            onChange={handleChange} 
-            name='displayName' 
-            value={displayName}/>
+            type="text"
+            required
+            onChange={handleChange}
+            name='displayName'
+            value={ displayName }
+            />
 
-            
-            <FormInput
+            <FormInput 
             label="Email"
-             type="email" required 
+            type="email"
+            required
             onChange={handleChange} 
             name='email' 
             value={email}/>
 
-           
             <FormInput
             label="Password"
-             type="password" required 
+            type="password" 
+            required 
             onChange={handleChange} 
             name='password' 
             value={password}/>
 
-            
             <FormInput
             label="Confirm Password"
-             type="password" required 
+            type="password" required 
             onChange={handleChange} 
             name='confirmPassword' 
             value={confirmPassword} />
