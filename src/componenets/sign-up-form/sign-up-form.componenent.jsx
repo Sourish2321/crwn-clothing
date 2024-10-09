@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createAuthUserWithUserandPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
+import './sign-up-form.styles.scss'
 import Button from '../button/button.componenet';
 import FormInput from '../form-input/form-input.component';
 const defaultFormFields = {
@@ -26,9 +27,13 @@ const SignUpForm = () => {
         if (password !== confirmPassword){
              return alert("Ensure that the Passwords match");
         }
-       try {
-        const { user } = createAuthUserWithUserandPassword(email, password)
-        await createUserDocumentFromAuth(user, { displayName })
+        try {
+            const { user } = await createAuthUserWithUserandPassword(
+              email,
+              password
+            );
+      
+            await createUserDocumentFromAuth(user, { displayName });
         resetFormFields()
         } catch(error){
             if(error.code === 'auth/email-already-in-use'){
