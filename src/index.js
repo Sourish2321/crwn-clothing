@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { UserProvider } from './componenets/contexts/user.context';
 import { ProductProvider } from './componenets/contexts/products.context';
+import { CartProvider } from './componenets/contexts/cart.context';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -16,7 +17,9 @@ root.render(
     <BrowserRouter>
     <UserProvider>
       <ProductProvider>
+        <CartProvider>
       <App />
+      </CartProvider>
       </ProductProvider>
       </UserProvider> 
     </BrowserRouter>
